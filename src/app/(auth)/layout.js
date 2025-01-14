@@ -8,12 +8,17 @@ export const metadata = {
 
 const Layout = ({ children }) => {
     return (
-        <div>
-            <div className="text-gray-900 antialiased">
+        <div className="flex min-h-screen">
+            {/* Imagen de fondo */}
+            <div className="w-1/2 bg-cover bg-center bg-primary" style={{ backgroundImage: "url('/path-to-your-image.jpg')" }}>
+                {/* Asegúrate de reemplazar con la ruta real de tu imagen */}
+            </div>
+            {/* Panel de inicio de sesión */}
+            <div className="w-1/2 flex flex-col justify-center items-center bg-white">
                 <AuthCard
                     logo={
                         <Link href="/">
-                            <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
+                            <ApplicationLogo className="w-20 h-30 fill-current text-gray-500" />
                         </Link>
                     }>
                     {children}

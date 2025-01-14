@@ -1,4 +1,4 @@
-import LoginLinks from '@/app/LoginLinks'
+import LoginLinks from './LoginLinks'
 
 export const metadata = {
     title: 'Laravel',

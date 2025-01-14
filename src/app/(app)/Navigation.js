@@ -5,14 +5,13 @@ import NavLink from '@/components/NavLink'
 import ResponsiveNavLink, {
     ResponsiveNavButton,
 } from '@/components/ResponsiveNavLink'
-import { DropdownButton } from '@/components/DropdownLink'
+import DropdownLink, { DropdownButton } from '@/components/DropdownLink'
 import { useAuth } from '@/hooks/auth'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 const Navigation = ({ user }) => {
     const { logout } = useAuth()
-
     const [open, setOpen] = useState(false)
 
     return (
@@ -34,6 +33,21 @@ const Navigation = ({ user }) => {
                                 href="/dashboard"
                                 active={usePathname() === '/dashboard'}>
                                 Dashboard
+                            </NavLink>
+                            <NavLink
+                                href="/institutional"
+                                active={usePathname() === '/institutional"'}>
+                                Institucional
+                            </NavLink>
+                            <NavLink
+                                href="/control"
+                                active={usePathname() === '/control"'}>
+                                Recursos Humanos
+                            </NavLink>
+                            <NavLink
+                                href="/control"
+                                active={usePathname() === '/control"'}>
+                                Control
                             </NavLink>
                         </div>
                     </div>
@@ -62,6 +76,11 @@ const Navigation = ({ user }) => {
                                 </button>
                             }>
                             {/* Authentication */}
+                            <DropdownLink
+                                href="profile"
+                            >
+                                Perfil
+                            </DropdownLink>
                             <DropdownButton onClick={logout}>
                                 Logout
                             </DropdownButton>
