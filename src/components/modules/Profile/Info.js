@@ -13,5 +13,5 @@ export default function Info() {
           <li><strong>Social:</strong> [Icons Placeholder]</li>
         </ul>
       </section>
-    );
+    )
   }

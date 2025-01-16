@@ -1,9 +1,9 @@
 import Image from "next/image"
 
-const ApplicationLogo = props => (
+const ApplicationIsotype = props => (
     <Image
         {...props}
-        src="/assets/logo.png"
+        src="/logo.png"
         width={400}
         height={400}
         alt="Picture of the author"
@@ -11,4 +11,4 @@ const ApplicationLogo = props => (
     />
 )
 
-export default ApplicationLogo
+export default ApplicationIsotype

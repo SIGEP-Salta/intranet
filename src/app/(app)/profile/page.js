@@ -1,7 +1,7 @@
 import Header from "../Header"
-import Card from "@/components/Card"
 import ProfileData from "@/components/modules/Employees/ProfileData"
 import Widget from "@/components/Widget"
+import Image from "next/image"
 
 export const metadata = {
     title: 'Mi perfil',
@@ -17,10 +17,12 @@ const Profile = () => {
       <div className="flex flex-col items-center">
         {/* Vista previa de la imagen */}
         <div className="w-24 h-24 mb-4">
-          <img
+          <Image 
             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
             alt="Profile Preview"
             className="w-full h-full rounded-full object-cover"
+            width={256}
+            height={256}
           />
         </div>
         {/* Botón para editar */}

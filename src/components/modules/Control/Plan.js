@@ -1,9 +1,8 @@
 import Widget from "@/components/Widget"
-import { useYear } from "@/context/YearContext"
+//import { useYear } from "@/context/YearContext"
 
 export default async function Plan() {
-    const year = useYear
-    console.log(year)
+    //const year = useYear
     return (
         <>
             <Widget>

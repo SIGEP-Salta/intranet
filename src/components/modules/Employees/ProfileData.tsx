@@ -1,8 +1,6 @@
 'use client'
-import Card from "@/components/Card";
-import { useAuth } from "@/hooks/auth";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import Card from "@/components/Card"
+import { useEffect, useState } from "react"
 /*
 async function loadEmployees(userId) {
     try {
@@ -20,17 +18,15 @@ async function loadEmployees(userId) {
 }
 */
 export default function ProfileData() {
-    const { user } = useAuth({ middleware: 'auth' })
-    const [employees, setEmployees] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
 
         const loadEmployees = async () => {
             try {
                 //const response = await fetch(`http://localhost:3000/api/employees/${user.id}`);
-                const response = await fetch(`/api/employees/22`);
-                console.log('espero');
+                //const response = await fetch(`/api/employees/22`);
+                //console.log('espero')
                 // if (!response.ok) {
                 //     throw new Error("Failed to fetch employees");
                 // }
@@ -38,17 +34,17 @@ export default function ProfileData() {
                 // setEmployees(employeesData);
             } catch (error) {
 
-                console.error("Error al cargar los empleados:", error.message);
+                //console.error("Error al cargar los empleados:", error.message)
             } finally {
-                setLoading(false);
+                setLoading(false)
             }
-        };
+        }
 
-        loadEmployees();
-    }, []);
+        loadEmployees()
+    }, [])
 
     if (loading) {
-        return <p>Cargando empleados...</p>;
+        return <p>Cargando empleados...</p>
     }
     //const employees = await loadEmployees(3);
     return (

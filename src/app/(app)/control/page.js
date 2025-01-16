@@ -1,6 +1,4 @@
 
-import Card from "@/components/Card"
-import Widget from "@/components/Widget"
 import Header from "../Header"
 import Plan from "@/components/modules/Control/Plan"
 import Audits from "@/components/modules/Control/Audits"
@@ -11,12 +9,6 @@ export const metadata = {
 }
 
 const YEAR = 2024//new Date().getFullYear()
-
-async function loadEmployees() {
-    const response = await fetch(`http://localhost:3000/api/control/plans`);
-    const employees = await response.json();
-    return employees;
-}
 
 const Control = () => {
     return (

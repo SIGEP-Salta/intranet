@@ -1,14 +1,14 @@
-import Card from "@/components/Card";
-import axios from "axios";
+import Card from "@/components/Card"
+import Image from "next/image"
 
 async function loadEmployees() {
-    const response = await fetch(`http://localhost:3000/api/control/plans`);
-    const employees = await response.json();
-    return employees;
+    const response = await fetch(`http://localhost:3000/api/control/plans`)
+    const employees = await response.json()
+    return employees
 }
 
 export default async function Plans() {
-    const employees = await loadEmployees();
+    const employees = await loadEmployees()
     return (
         <Card 
             title="Planes anuales de acción"
@@ -21,12 +21,13 @@ export default async function Plans() {
                         className="flex items-center space-x-4 border-b pb-4"
                     >
                         {/* Avatar */}
-                        <img
+                        <Image
                             src={employee.avatar}
                             alt={employee.name}
-                            className="w-12 h-12 rounded-full object-cover"
+                            width={48}
+                            height={48}
+                            className="rounded-full"
                         />
-
                         {/* Información del empleado */}
                         <div>
                             <h3 className="text-lg font-semibold text-gray-800">
@@ -38,8 +39,6 @@ export default async function Plans() {
                     </div>
                 ))}
             </div>
-
-        
         </Card>
     )
 }

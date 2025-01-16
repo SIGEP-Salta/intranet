@@ -1,23 +1,22 @@
-import Card from "@/components/Card";
-import axios from "axios";
+import Card from "@/components/Card"
+import Image from "next/image"
 
 async function loadEmployees() {
     try {
-        const response = await fetch(`http://localhost:3000/api/employees`);
+        const response = await fetch(`http://localhost:3000/api/employees`)
         if (!response.ok) {
-            throw new Error("Failed to fetch employees");
+            throw new Error("Failed to fetch employees")
         }
-        const employees = await response.json();
-        return employees;
+        const employees = await response.json()
+        return employees
     } catch (error) {
-        console.error("Error al cargar los empleados:", error.message);
-        return [];
+        return []
     }
     
 }
 
 export default async function Birthdays() {
-    const employees = await loadEmployees();
+    const employees = await loadEmployees()
     return (
         <Card 
             title="Próximos cumpleaños"
@@ -30,10 +29,12 @@ export default async function Birthdays() {
                         className="flex items-center space-x-4 border-b pb-4"
                     >
                         {/* Avatar */}
-                        <img
+                        <Image
                             src={employee.avatar}
                             alt={employee.name}
-                            className="w-12 h-12 rounded-full object-cover"
+                            width={48}
+                            height={48}
+                            className="rounded-full"
                         />
 
                         {/* Información del empleado */}
@@ -47,8 +48,6 @@ export default async function Birthdays() {
                     </div>
                 ))}
             </div>
-
-        
         </Card>
     )
 }

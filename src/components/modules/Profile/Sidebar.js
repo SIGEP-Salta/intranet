@@ -1,9 +1,9 @@
 "use client"
-import Switch from "@/components/Switch";
-import { useState } from "react";
+import Switch from "@/components/Switch"
+import { useState } from "react"
 
 export default function Sidebar() {
-    const [emailOnFollow, setEmailOnFollow] = useState(false);
+    const [emailOnFollow, setEmailOnFollow] = useState(false)
     return (
       <aside className="bg-blue-800 text-white p-4 space-y-6 w-1/4">
         <h2 className="text-lg font-bold">Platform Settings</h2>
@@ -41,5 +41,5 @@ export default function Sidebar() {
           </div>
         </div>
       </aside>
-    );
+    )
   }

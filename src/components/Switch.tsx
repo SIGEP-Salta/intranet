@@ -1,13 +1,6 @@
-// components/Switch.tsx
-import React from "react";
+import React from "react"
 
-interface SwitchProps {
-  checked: boolean;
-  onChange: (value: boolean) => void;
-  label?: string;
-}
-
-const Switch: React.FC<SwitchProps> = ({ checked, onChange, label }) => {
+const Switch = ({ checked, onChange, label }) => { 
   return (
     <div className="flex items-center gap-2">
       {label && <span className="text-sm text-gray-700">{label}</span>}
@@ -24,7 +17,7 @@ const Switch: React.FC<SwitchProps> = ({ checked, onChange, label }) => {
         />
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Switch;
+export default Switch

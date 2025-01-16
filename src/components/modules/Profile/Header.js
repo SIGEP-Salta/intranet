@@ -8,5 +8,5 @@ export default function Header() {
           <button className="hover:underline">Settings</button>
         </nav>
       </header>
-    );
+    )
   }

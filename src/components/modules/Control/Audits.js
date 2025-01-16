@@ -1,22 +1,20 @@
-import Card from "@/components/Card";
-import axios from "axios";
+import Card from "@/components/Card"
 
 async function loadEmployees() {
     try {
         const response = await fetch(`http://localhost:3000/api/control`)
         const employees = await response.json()
         if (!response.ok) {
-            throw new Error(employees.message || "Something went wrong");
+            throw new Error(employees.message || "Something went wrong")
         }
         return employees
     } catch (error) {
-        console.error("Error al cargar los empleados:", error.message)
         return []
     }
 }
 
 export default async function Audits() {
-    const employees = await loadEmployees();
+    const employees = await loadEmployees()
     return (
         <Card 
             title="Acciones de control"
@@ -39,9 +37,6 @@ export default async function Audits() {
                         </div>
                     </div>
                 ))}
-            
-
-        
         </Card>
     )
 }

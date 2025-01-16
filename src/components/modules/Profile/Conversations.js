@@ -4,7 +4,7 @@ export default function Conversations() {
       { name: "Anne Marie", message: "Awesome work, can you..." },
       { name: "Ivanna", message: "About files I can..." },
       { name: "Peterson", message: "Have a great afternoon..." },
-    ];
+    ]
   
     return (
       <section className="bg-blue-700 text-white p-4 rounded-md w-3/4 mt-4">
@@ -19,5 +19,5 @@ export default function Conversations() {
           ))}
         </ul>
       </section>
-    );
+    )
   }

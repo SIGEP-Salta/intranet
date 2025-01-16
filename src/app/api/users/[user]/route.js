@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from "next/server"
 
-export function GET(request, { user }) {
-    return NextResponse.json({ message: "Hello from the API!" });
+export function GET() {
+    return NextResponse.json({ message: "Hello from the API!" })
 }

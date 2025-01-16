@@ -1,24 +1,22 @@
-import Card from "@/components/Card";
-import axios from "axios";
-import Link from "next/link";
+import Card from "@/components/Card"
+import Link from "next/link"
 
 async function loadEmployees() {
     try {
-        const response = await fetch(`http://localhost:3000/api/web`);
+        const response = await fetch(`http://localhost:3000/api/web`)
         if (!response.ok) {
-            throw new Error("Failed to fetch employees");
+            throw new Error("Failed to fetch employees")
         }
-        const employees = await response.json();
-        return employees;
+        const employees = await response.json()
+        return employees
     } catch (error) {
-        console.error("Error al cargar los empleados:", error.message);
-        return [];
+        return []
     }
     
 }
 
 export default async function Web() {
-    const employees = await loadEmployees();
+    const employees = await loadEmployees()
     return (
         <Card 
             title="Novedades"
@@ -43,8 +41,6 @@ export default async function Web() {
                     </div>
                 ))}
             </div>
-
-        
         </Card>
     )
 }

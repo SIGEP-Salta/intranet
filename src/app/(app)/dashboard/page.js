@@ -3,6 +3,7 @@ import Card from '@/components/Card'
 import Apps from '@/components/modules/Dashboard/Apps'
 import Web from '@/components/modules/Dashboard/Web'
 import Birthdays from '@/components/modules/Employees/Birthdays'
+import Image from 'next/image'
 
 export const metadata = {
     title: 'Laravel - Dashboard',
@@ -21,7 +22,7 @@ const Dashboard = () => {
                     subtitle="Ultimas novedades para todo el personal"
                 >
                     <div className="flex items-center space-x-3 pb-6">
-                        <img src="avatar.jpg" alt="Avatar" className="w-10 h-10 rounded-full border-2 border-gray-300" />
+                        <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-gray-300" />
                         <div>
                             <p className="font-semibold">Daniel Murillo</p>
                             <p className="text-sm text-gray-500">Publicado hace 2 dias</p>
@@ -29,7 +30,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div className="flex items-center space-x-3 pb-6">
-                        <img src="avatar.jpg" alt="Avatar" className="w-10 h-10 rounded-full border-2 border-gray-300" />
+                        <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-gray-300" />
                         <div>
                             <p className="font-semibold">Daniel Murillo</p>
                             <p className="text-sm text-gray-500">Publicado hace 2 dias</p>
@@ -41,14 +42,10 @@ const Dashboard = () => {
                     <Card title="Notificaciones">
                         <div className="relative">
                             <div className="flex items-center space-x-[-10px]">
-
-                                <img src="https://avatar.iran.liara.run/public" alt="Avatar 1" className="w-10 h-10 rounded-full border-2 border-white" />
-
-                                <img src="https://avatar.iran.liara.run/public" alt="Avatar 2" className="w-10 h-10 rounded-full border-2 border-white" />
-
-                                <img src="https://avatar.iran.liara.run/public" alt="Avatar 3" className="w-10 h-10 rounded-full border-2 border-white" />
-
-                                <img src="https://avatar.iran.liara.run/public" alt="Avatar 4" className="w-10 h-10 rounded-full border-2 border-white" />
+                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
+                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
+                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
+                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
                             </div>
                         </div>
 
@@ -56,14 +53,10 @@ const Dashboard = () => {
                     <Card title="Notificaciones">
                         <div className="relative">
                             <div className="flex items-center space-x-[-10px]">
-
-                                <img src="https://avatar.iran.liara.run/public" alt="Avatar 1" className="w-10 h-10 rounded-full border-2 border-white" />
-
-                                <img src="https://avatar.iran.liara.run/public" alt="Avatar 2" className="w-10 h-10 rounded-full border-2 border-white" />
-
-                                <img src="https://avatar.iran.liara.run/public" alt="Avatar 3" className="w-10 h-10 rounded-full border-2 border-white" />
-
-                                <img src="https://avatar.iran.liara.run/public" alt="Avatar 4" className="w-10 h-10 rounded-full border-2 border-white" />
+                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
+                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
+                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
+                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
                             </div>
                         </div>
 
