@@ -1,8 +1,9 @@
 import Card from "@/components/Card"
 
-async function loadEmployees() {
+async function loadEmployees(year) {
+    console.log('year', year)
     try {
-        const response = await fetch(`http://localhost:3000/api/control`)
+        const response = await fetch(`http://localhost:3000/api/control?year=${year}`)
         const employees = await response.json()
         if (!response.ok) {
             throw new Error(employees.message || "Something went wrong")
@@ -13,12 +14,12 @@ async function loadEmployees() {
     }
 }
 
-export default async function Audits() {
-    const employees = await loadEmployees()
+export default async function Audits({ year }) {
+    const employees = await loadEmployees(year)
     return (
         <Card 
             title="Acciones de control"
-            subtitle="Listado de acciones de control vigentes"
+            subtitle="Listado de acciones de control"
             className="w-full"
         >
             

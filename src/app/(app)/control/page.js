@@ -21,7 +21,7 @@ const Control = () => {
                     <Plan />
                 </div>
                 <div className="col-span-2">
-                    <Audits />
+                    <Audits year={YEAR} />
                 </div>
             </div>
             </>
