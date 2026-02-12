@@ -16,7 +16,7 @@ export default function Apps() {
                         <p className="mt-2 font-semibold text-center">Sistema de <br />Gestion del Plan Anual</p>
                     </div>
                 </Link>
-                <Link href="/employees" target="_blank"  className="hover:text-white">
+                <Link href="http://rrhh.sigep.local" target="_blank"  className="hover:text-white">
                     <div className="flex flex-col items-center py-6 bg-alternative hover:bg-primary cursor-pointer">
                         <div className="bg-white py-4 px-5 rounded-full">
                             <span className="text-3xl">
@@ -26,7 +26,7 @@ export default function Apps() {
                         <p className="mt-2 font-semibold text-center">Sistema de <br />Recursos Humanos</p>
                     </div>
                 </Link>
-                <Link href="/employees" target="_blank"  className="hover:text-white">
+                <Link href="http://patrimonio.sigep.local" target="_blank"  className="hover:text-white">
                     <div className="flex flex-col items-center py-6 bg-alternative hover:bg-primary cursor-pointer">
                         <div className="bg-white py-4 px-5 rounded-full">
                             <span className="text-3xl">

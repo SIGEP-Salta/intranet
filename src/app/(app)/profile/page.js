@@ -3,6 +3,7 @@ import ProfileData from "@/components/modules/Employees/ProfileData"
 import Widget from "@/components/Widget"
 import Image from "next/image"
 
+
 export const metadata = {
     title: 'Mi perfil',
 }
@@ -18,7 +19,7 @@ const Profile = () => {
         {/* Vista previa de la imagen */}
         <div className="w-24 h-24 mb-4">
           <Image 
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            src="http://131.107.4.111:8081/storage/avatars/"
             alt="Profile Preview"
             className="w-full h-full rounded-full object-cover"
             width={256}

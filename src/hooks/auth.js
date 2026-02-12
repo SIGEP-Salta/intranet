@@ -41,14 +41,15 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
         setErrors([])
         setStatus(null)
 
-        axios
-            .post('/login', props)
-            .then(() => mutate())
-            .catch(error => {
-                if (error.response.status !== 422) throw error
+        try {
+            await axios.post('/login', props) // responde 204 o 302 según backend
+            await mutate() // refresca el usuario logueado
+            //router.push('/') // redirige al home tras login exitoso
+        } catch (error) {
+            if (error.response?.status !== 422) throw error
 
-                setErrors(error.response.data.errors)
-            })
+            setErrors(error.response.data.errors)
+        }
     }
 
     const forgotPassword = async ({ setErrors, setStatus, email }) => {
@@ -104,7 +105,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
             router.push(redirectIfAuthenticated)
 
         if (middleware === 'auth' && !user?.email_verified_at)
-            router.push('/verify-email')
+            //router.push('/verify-email')
         
         if (
             window.location.pathname === '/verify-email' &&

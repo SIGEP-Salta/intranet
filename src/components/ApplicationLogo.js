@@ -4,10 +4,10 @@ const ApplicationLogo = props => (
     <Image
         {...props}
         src="/assets/logo.png"
-        width={400}
-        height={400}
-        alt="Picture of the author"
-        title={`${process.env.NEXT_PUBLIC_APP_NAME}`}
+        width={250}
+        height={250}
+        alt="Sindicatura General de la Provincia de Salta"
+        title="Sindicatura General de la Provincia de Salta"
     />
 )
 
