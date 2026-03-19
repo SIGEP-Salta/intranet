@@ -18,13 +18,7 @@ const Profile = () => {
       <div className="flex flex-col items-center">
         {/* Vista previa de la imagen */}
         <div className="w-24 h-24 mb-4">
-          <Image 
-            src="http://131.107.4.111:8081/storage/avatars/"
-            alt="Profile Preview"
-            className="w-full h-full rounded-full object-cover"
-            width={256}
-            height={256}
-          />
+          
         </div>
         {/* Botón para editar */}
         <label

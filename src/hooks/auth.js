@@ -9,7 +9,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
 
     const { data: user, error, mutate } = useSWR('/api/user', () =>
         axios
-            .get('/api/user')
+            .get('/api/v1/user')
             .then(res => res.data)
             .catch(error => {
                 if (error.response.status !== 409) throw error
@@ -42,7 +42,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
         setStatus(null)
 
         try {
-            await axios.post('/login', props) // responde 204 o 302 según backend
+            await axios.post('/api/v1/login', props) // responde 204 o 302 según backend
             await mutate() // refresca el usuario logueado
             //router.push('/') // redirige al home tras login exitoso
         } catch (error) {
