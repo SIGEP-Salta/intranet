@@ -6,6 +6,22 @@ This repository is an implementation of the [Laravel Breeze](https://laravel.com
 
 ## Official Documentation
 
+## Integracion con Ollama (local)
+
+Para usar el componente de busqueda/chat en `Control`, defini estas variables en tu `.env.local`:
+
+```bash
+OLLAMA_BASE_URL=http://131.107.4.131:11434
+OLLAMA_MODEL=llama3.1:8b
+OLLAMA_SYSTEM_PROMPT=Sos un asistente para el area de Control. Responde en espanol claro y conciso.
+```
+
+Endpoint creado en Next.js:
+
+- `POST /api/control/research`
+- body: `{ "prompt": "tu consulta" }`
+- response: `{ "answer": "texto de respuesta" }`
+
 ### Installation
 
 First, create a Next.js compatible Laravel backend by installing Laravel Breeze into a [fresh Laravel application](https://laravel.com/docs/installation) and installing Breeze's API scaffolding:

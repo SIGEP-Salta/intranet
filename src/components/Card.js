@@ -3,7 +3,7 @@ import React from "react"
 export default function Card({ title, subtitle, children, className = "" }) {
     return (
         <div className={`bg-white shadow-md rounded-lg p-6 border border-gray-200 ${className}`}>
-            <div className="mb-6">
+            <div>
                 {title && (
                     <h2 className="text-lg font-semibold text-primary">{title}</h2>
                 )}

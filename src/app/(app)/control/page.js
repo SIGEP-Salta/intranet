@@ -2,6 +2,7 @@
 import Header from "../Header"
 import Plan from "@/components/modules/Control/Plan"
 import Audits from "@/components/modules/Control/Audits"
+import Research from "@/components/modules/Control/Research"
 import { YearProvider } from '@/context/YearContext'
 
 export const metadata = {
@@ -22,6 +23,9 @@ const Control = () => {
                 </div>
                 <div className="col-span-2">
                     <Audits year={YEAR} />
+                    <div className="mt-6">
+                        <Research />
+                    </div>
                 </div>
             </div>
             </>
