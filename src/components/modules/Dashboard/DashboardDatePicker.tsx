@@ -270,7 +270,7 @@ console.log("mixedDays", mixedDays);
             </div>
           </div>
         )}
-        { !loading && 1==2 && (
+        { !loading && (
           <div className="col-span-1 md:col-span-2">
             <Legend items={legendItems} />
           </div>

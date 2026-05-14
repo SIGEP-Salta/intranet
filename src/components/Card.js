@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Card({ title, subtitle, children, className = "" }) {
+export default function Card({ title = "", subtitle = "", className = "", children}) {
     return (
         <div className={`bg-white shadow-md rounded-lg p-6 border border-gray-200 ${className}`}>
             <div>

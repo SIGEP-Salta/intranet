@@ -18,7 +18,7 @@ async function loadEmployees() {
 export default async function Web() {
     const employees = await loadEmployees()
     return (
-        <Card 
+        <Card
             title="Novedades"
             subtitle="Últimas novedades publicadas en nuestra web"
         >
