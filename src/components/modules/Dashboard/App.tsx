@@ -1,18 +1,18 @@
 import Link from "next/link"
 import Image from "next/image"
 import logo from "@/../public/assets/logo_blanco.png"
+import Card from "@/components/Card"
 
-export default function App({ url, title}) {
+export default function App({ url, name, description}) {
     return (
+        <Card className="">
         <Link href={url} target="_blank" className="">
-            <div className="flex flex-col items-center py-6 cursor-pointer">
-                <div className="bg-primary py-4 px-5 rounded-full">
-                    <span className="text-base">
-                        <Image src={logo} width={16} height={16} alt="Employees" />
-                    </span>
-                </div>
-                <p className="mt-2 font-semibold text-sm text-center">{title}</p>
+            <div className="flex flex-col cursor-pointer">
+                
+                <p className="mt-2 font-semibold text-sm">{name}</p>
+                <p className="mt-2 font-semibold text-sm">{description}</p>
             </div>
         </Link>
+        </Card>
     )
 }

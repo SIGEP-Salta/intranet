@@ -203,10 +203,10 @@ console.log("mixedDays", mixedDays);
 
   return (
     <>
-      <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
+      <div className='grid grid-cols-1 gap-4'>
         { loading && (<Loading />)}
         { !loading && bookedDays && (
-          <>
+          <div className='flex w-[280px] flex-col gap-4'>
             <DayPicker
               animate
               mode="single"
@@ -228,8 +228,9 @@ console.log("mixedDays", mixedDays);
                 holiday: "bg-blue-500 text-white rounded-full",
                 mixed: "bg-purple-500 text-white rounded-full",
               }}
+              className="w-full"
             />
-            <div className='flex w-full flex-col gap-2'>
+            <div className='flex w-full flex-col gap-2 h-[300px]'>
               {selected && (
                 <h2 className="text-lg font-semibold">
                   {selected.toLocaleDateString("es-AR", {
@@ -267,9 +268,9 @@ console.log("mixedDays", mixedDays);
                 </div>
               ) }
             </div>
-          </>
+          </div>
         )}
-        { !loading && (
+        { !loading && 1==2 && (
           <div className="col-span-1 md:col-span-2">
             <Legend items={legendItems} />
           </div>

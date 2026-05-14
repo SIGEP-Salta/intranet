@@ -3,14 +3,11 @@ import { Nunito } from 'next/font/google'
 import './global.css'
 import PWARegister from '@/components/PWARegister'
 
-const nunitoFont = Nunito({
-    subsets: ['latin'],
-    display: 'swap',
-})
+
 
 const RootLayout = ({ children }) => {
     return (
-        <html lang="es" className={nunitoFont.className}>
+        <html lang="es">
             <body className="antialiased">
                 <PWARegister />
                 {children}
