@@ -9,9 +9,26 @@ import {
 
 const DEFAULT_NEWS_IMAGE = "/assets/logo.jpg"
 
+function employeesOrigin(): string {
+  return (process.env.NEXT_PUBLIC_EMPLOYEES_URL || process.env.EMPLOYEES_URL || "")
+    .trim()
+    .replace(/\/+$/, "")
+}
+
 function resolveNewsImage(src: string | undefined): string {
   const trimmed = src?.trim() ?? ""
-  return trimmed.length > 0 ? trimmed : DEFAULT_NEWS_IMAGE
+  if (trimmed.length === 0) {
+    return DEFAULT_NEWS_IMAGE
+  }
+  if (/^https?:\/\//i.test(trimmed)) {
+    return trimmed
+  }
+  const base = employeesOrigin()
+  if (!base) {
+    return trimmed
+  }
+  const path = trimmed.startsWith("/") ? trimmed : `/${trimmed}`
+  return `${base}${path}`
 }
 
 export type NewsItem = {
@@ -19,7 +36,7 @@ export type NewsItem = {
   title: string
   content: string
   date: string
-  type: string
+  post_type: string
 }
 
 type NewsItemRaw = {
@@ -30,7 +47,7 @@ type NewsItemRaw = {
   body?: string
   date?: string
   published_at?: string
-  type?: string
+  post_type?: string
   category?: string
 }
 
@@ -40,7 +57,7 @@ export function mapNewsItem(raw: NewsItemRaw): NewsItem {
     title: raw.title ?? "",
     content: raw.content ?? raw.body ?? "",
     date: raw.date ?? raw.published_at ?? "",
-    type: raw.type ?? raw.category ?? "",
+    post_type: raw.post_type ?? raw.category ?? "",
   }
 }
 
@@ -77,7 +94,7 @@ export default function New({ item, index }: NewProps) {
               className="absolute inset-0 h-full w-full object-cover"
             />
             <Badge variant="secondary" className="absolute left-3 top-3 z-10 bg-white">
-              {item.type}
+              {item.post_type}
             </Badge>
           </div>
           <CardContent className="p-4">
@@ -95,7 +112,7 @@ export default function New({ item, index }: NewProps) {
               className="h-full w-full object-cover"
             />
             <Badge className="absolute left-3 top-3 z-10 rounded-full bg-white">
-              {item.type}
+              {item.post_type}
             </Badge>
           </div>
           <CardContent className="p-4">

@@ -1,4 +1,7 @@
 module.exports = {
+    env: {
+        NEXT_PUBLIC_EMPLOYEES_URL: process.env.EMPLOYEES_URL,
+    },
     images: {
         remotePatterns: [
             {
