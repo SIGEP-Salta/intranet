@@ -2,6 +2,7 @@ import Link from 'next/link'
 import AuthCard from '@/app/(auth)/AuthCard'
 import ApplicationLogo from '@/components/ApplicationLogo'
 import Image from 'next/image'
+import 'react-day-picker/style.css'
 
 
 export const metadata = {
