@@ -95,8 +95,8 @@ export default function App({ url, name, description, icon, colorIndex = 0 }: Ap
                     <AppIcon icon={icon} name={name} colorClass={colors.icon} />
                 </div>
                 <div className="flex flex-col gap-0.5 text-left">
-                    <p className="text-xs font-semibold text-gray-800 leading-tight line-clamp-2">{name}</p>
-                    <p className="text-[11px] text-gray-400 leading-tight line-clamp-1">{description}</p>
+                    <p className="text-lg font-semibold text-gray-800 leading-tight line-clamp-2">{name}</p>
+                    <p className="text-md text-gray-400 leading-tight line-clamp-1">{description}</p>
                 </div>
             </Link>
         </Card>
