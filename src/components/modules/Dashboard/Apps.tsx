@@ -53,7 +53,7 @@ export default function Apps() {
             <p className="text-xs font-semibold tracking-wider text-gray-400 uppercase mb-3">
                 Accesos rápidos · Por rol
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-10 gap-4">
                 {apps.map((app, i) => (
                     <App
                         key={app.id}

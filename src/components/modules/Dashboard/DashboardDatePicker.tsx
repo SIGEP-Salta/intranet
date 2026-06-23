@@ -13,7 +13,7 @@ import { Item, ItemActions, ItemContent, ItemMedia, ItemTitle } from '@/componen
 
 interface EventItem {
     title: string
-    type: 'birthday' | 'holiday'
+    type: 'birthday' | 'holiday' | 'post'
     icon: ReactNode
     date: Date
 }
@@ -21,6 +21,7 @@ interface EventItem {
 const legendItems = [
     { color: 'bg-red-500', label: 'Cumpleaños' },
     { color: 'bg-blue-500', label: 'Feriado' },
+    { color: 'bg-green-500', label: 'Novedades' },
     { color: 'bg-purple-500', label: 'Cumpleaños + Feriado' },
 ]
 
@@ -31,7 +32,7 @@ const formatDateKey = (date: Date) => {
     return `${y}-${m}-${d}`
 }
 
-const mapEvents = (birthdays: any[], holidays: any[]): Record<string, EventItem[]> => {
+const mapEvents = (birthdays: any[], holidays: any[], posts: any[]): Record<string, EventItem[]> => {
     const map: Record<string, EventItem[]> = {}
 
     birthdays.forEach((b) => {
@@ -51,6 +52,15 @@ const mapEvents = (birthdays: any[], holidays: any[]): Record<string, EventItem[
         map[key].push({ title: h.name, type: 'holiday', icon: <Calendar className="size-4 text-blue-600" />, date })
     })
 
+    posts.forEach((p) => {
+        const [datePart] = p.post_date.split('T')
+        const [year, month, day] = datePart.split('-')
+        const date = new Date(Number(year), Number(month) - 1, Number(day))
+        const key = formatDateKey(date)
+        if (!map[key]) map[key] = []
+        map[key].push({ title: p.title, type: 'post', icon: <Calendar className="size-4 text-blue-600" />, date })
+    })
+
     return map
 }
 
@@ -61,23 +71,28 @@ export default function DashboardDatePicker() {
     const [eventsByDate, setEventsByDate] = useState<Record<string, EventItem[]>>({})
     const [birthdayDays, setBirthdayDays] = useState<Date[]>([])
     const [holidayDays, setHolidayDays] = useState<Date[]>([])
+    const [postsDays, setPostsDays] = useState<Date[]>([])
     const [mixedDays, setMixedDays] = useState<Date[]>([])
 
     useEffect(() => {
         let cancelled = false
         ;(async () => {
             try {
-                const [birthdaysRes, holidaysRes] = await Promise.all([
+                const [birthdaysRes, holidaysRes, postRes] = await Promise.all([
                     fetch('/api/employees/birthdays', { cache: 'no-store' }),
                     fetch('/api/holidays', { cache: 'no-store' }),
+                    fetch('/api/posts', { cache: 'no-store' }),
                 ])
 
                 const birthdays = await birthdaysRes.json()
                 const holidays = await holidaysRes.json()
-                const mapped = mapEvents(birthdays, holidays)
+                const posts = await postRes.json()
+                console.log('los posts son', posts);
+                const mapped = mapEvents(birthdays, holidays, posts)
 
                 const bDays: Date[] = []
                 const hDays: Date[] = []
+                const pDays: Date[] = []
                 const mDays: Date[] = []
 
                 Object.values(mapped).forEach((events) => {
@@ -87,6 +102,8 @@ export default function DashboardDatePicker() {
                         mDays.push(date)
                     } else if (types.includes('birthday')) {
                         bDays.push(date)
+                    } else if (types.includes('post')) {
+                        pDays.push(date)
                     } else {
                         hDays.push(date)
                     }
@@ -96,6 +113,7 @@ export default function DashboardDatePicker() {
                     setEventsByDate(mapped)
                     setBirthdayDays(bDays)
                     setHolidayDays(hDays)
+                    setPostsDays(pDays)
                     setMixedDays(mDays)
                 }
             } catch (error) {
@@ -134,11 +152,13 @@ export default function DashboardDatePicker() {
                     modifiers={{
                         birthday: birthdayDays,
                         holiday: holidayDays,
+                        post: postsDays,
                         mixed: mixedDays,
                     }}
                     modifiersClassNames={{
                         birthday: 'bg-red-500 text-white rounded-full',
                         holiday: 'bg-blue-500 text-white rounded-full',
+                        post: 'bg-green-500 text-white rounded-full',
                         mixed: 'bg-purple-500 text-white rounded-full',
                     }}
                     className="w-full"
