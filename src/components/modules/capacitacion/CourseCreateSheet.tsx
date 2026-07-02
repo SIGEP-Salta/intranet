@@ -48,50 +48,10 @@ export default function AppCreateSheet({ onCreated }: Props) {
   return (
     <SheetContent>
       <SheetHeader>
-        <SheetTitle>Crear aplicación</SheetTitle>
-        <SheetDescription>Registra una nueva aplicación en el sistema</SheetDescription>
+        <SheetTitle>Crear capacitacion</SheetTitle>
+        <SheetDescription>Registra una nueva capacitacion</SheetDescription>
       </SheetHeader>
       <div className="grid flex-1 auto-rows-min gap-6 overflow-y-auto px-4">
-        <div className="grid gap-3">
-          <Label htmlFor="create-app-name">Nombre</Label>
-          <Input
-            id="create-app-name"
-            value={name}
-            onChange={(e) => { setName(e.target.value);}}
-          />
-        </div>
-        <div className="grid gap-3">
-          <Label htmlFor="create-app-slug">Slug</Label>
-          <Input
-            id="create-app-slug"
-            value={slug}
-            onChange={(e) => { setSlug(e.target.value);}}
-          />
-        </div>
-        <div className="grid gap-3">
-          <Label htmlFor="create-app-url">URL</Label>
-          <Input
-            id="create-app-url"
-            value={url}
-          />
-        </div>
-        <div className="grid gap-3">
-          <Label htmlFor="create-app-description">Descripción</Label>
-          <Input
-            id="create-app-description"
-            value={description}
-          />
-        </div>
-        <div className="grid gap-3">
-          <Label htmlFor="create-app-order">Orden</Label>
-          <Input
-            id="create-app-order"
-            type="number"
-            min={0}
-            value={order}
-          />
-        </div>
-        <Separator />
       </div>
       <SheetFooter>
         <Button type="button" onClick={handleCreate} disabled={saving}>
