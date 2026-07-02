@@ -100,9 +100,10 @@ export default function AppCreateSheet({ onCreated }: Props) {
                 <FieldDescription>Aparece asignada a los usuarios por defecto</FieldDescription>
               </FieldContent>
               <Switch
-                id="create-switch-default"
+                key="create-switch-default"
                 checked={isDefault}
-                onCheckedChange={setIsDefault}
+                onChange={setIsDefault}
+                label={""}
               />
             </Field>
           </FieldLabel>
