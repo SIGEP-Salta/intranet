@@ -1,10 +1,8 @@
 import Card from "@/components/Card"
-import { usePlans } from "@/hooks/usePlans"
 import Image from "next/image"
 
 export default async function Plans() {
-    const  {plans} = usePlans();
-
+    const plans = []
     return (
         <Card 
             title="Planes anuales de acción"
