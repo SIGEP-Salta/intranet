@@ -134,35 +134,7 @@ export default function CourseEditSheet({ app, onClose, onAppUpdated }: Props) {
           )}
         </div>
         <Separator />
-        <FieldGroup className="w-full max-w-sm">
-          <FieldLabel htmlFor="switch-active">
-            <Field orientation="horizontal">
-              <FieldContent>
-                <FieldTitle>App activa</FieldTitle>
-                <FieldDescription>Habilita/Inhabilita la aplicación</FieldDescription>
-              </FieldContent>
-              <Switch
-                id="switch-active"
-                checked={active}
-                onCheckedChange={setActive}
-              />
-            </Field>
-          </FieldLabel>
-          <FieldLabel htmlFor="switch-default">
-            <Field orientation="horizontal">
-              <FieldContent>
-                <FieldTitle>App por defecto</FieldTitle>
-                <FieldDescription>Aparece asignada a los usuarios por defecto</FieldDescription>
-              </FieldContent>
-              <Switch
-                key="create-switch-default"
-                checked={isDefault}
-                onChange={setIsDefault}
-                label={""}
-              />
-            </Field>
-          </FieldLabel>
-        </FieldGroup>
+        
       </div>
       <SheetFooter>
         <Button type="button" onClick={handleSave} disabled={saving}>

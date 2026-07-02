@@ -92,22 +92,6 @@ export default function AppCreateSheet({ onCreated }: Props) {
           />
         </div>
         <Separator />
-        <FieldGroup className="w-full max-w-sm">
-          <FieldLabel htmlFor="create-switch-default">
-            <Field orientation="horizontal">
-              <FieldContent>
-                <FieldTitle>App por defecto</FieldTitle>
-                <FieldDescription>Aparece asignada a los usuarios por defecto</FieldDescription>
-              </FieldContent>
-              <Switch
-                key="create-switch-default"
-                checked={isDefault}
-                onChange={setIsDefault}
-                label={""}
-              />
-            </Field>
-          </FieldLabel>
-        </FieldGroup>
       </div>
       <SheetFooter>
         <Button type="button" onClick={handleCreate} disabled={saving}>
