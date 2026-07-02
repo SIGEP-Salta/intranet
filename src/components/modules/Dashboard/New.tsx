@@ -6,6 +6,7 @@ import {
   CardDescription,
   CardTitle,
 } from "@/components/ui/card"
+import Link from "next/link"
 
 const DEFAULT_NEWS_IMAGE = "/assets/logo.jpg"
 
@@ -32,6 +33,7 @@ function resolveNewsImage(src: string | undefined): string {
 }
 
 export type NewsItem = {
+  id: string
   image: string
   title: string
   content: string
@@ -40,6 +42,7 @@ export type NewsItem = {
 }
 
 type NewsItemRaw = {
+  id: string
   image?: string
   image_url?: string
   title?: string
@@ -53,6 +56,7 @@ type NewsItemRaw = {
 
 export function mapNewsItem(raw: NewsItemRaw): NewsItem {
   return {
+    id: raw.id,
     image: raw.image ?? raw.image_url ?? "",
     title: raw.title ?? "",
     content: raw.content ?? raw.body ?? "",
@@ -62,11 +66,15 @@ export function mapNewsItem(raw: NewsItemRaw): NewsItem {
 }
 
 export async function fetchNews(): Promise<NewsItem[]> {
-  const res = await fetch(`/api/news`, { cache: "no-store" })
+  const res = await fetch(`/api/posts/dashboard`, { cache: "no-store" })
   if (!res.ok) {
     return []
   }
   const data: NewsItemRaw[] = await res.json()
+  
+
+  console.log('la data es', data);
+  
   if (!Array.isArray(data)) {
     return []
   }
@@ -93,12 +101,12 @@ export default function New({ item, index }: NewProps) {
               alt={item.title}
               className="absolute inset-0 h-full w-full object-cover"
             />
-            <Badge variant="secondary" className="absolute left-3 top-3 z-10 bg-white">
+            <Badge className="absolute left-3 top-3 z-10 rounded-full">
               {item.post_type}
             </Badge>
           </div>
           <CardContent className="p-4">
-            <CardTitle>{item.title}</CardTitle>
+            <Link href={`/novedades/${item.id}`}>{item.title}</Link>
             <CardDescription className="py-2">{item.content}</CardDescription>
             <span className="text-xs text-muted-foreground">{item.date}</span>
           </CardContent>
@@ -111,12 +119,14 @@ export default function New({ item, index }: NewProps) {
               alt={item.title}
               className="h-full w-full object-cover"
             />
-            <Badge className="absolute left-3 top-3 z-10 rounded-full bg-white">
+            <Badge className="absolute left-3 top-3 z-10 rounded-full">
               {item.post_type}
             </Badge>
           </div>
           <CardContent className="p-4">
-            <CardTitle>{item.title}</CardTitle>
+            <CardTitle>
+              <Link href={`/novedades/${item.id}`}>{item.title}</Link>
+            </CardTitle>
             <CardDescription className="py-2">{item.content}</CardDescription>
             <span className="text-xs text-muted-foreground">{item.date}</span>
           </CardContent>

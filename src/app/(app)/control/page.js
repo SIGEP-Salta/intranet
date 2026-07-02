@@ -12,11 +12,11 @@ export const metadata = {
 const YEAR = 2024//new Date().getFullYear()
 
 const Control = () => {
+
     return (
         
         <YearProvider year={YEAR}>
             <>
-            <Header title="Control" />
             <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
                 <div className="col-span-1">
                     <Plan />

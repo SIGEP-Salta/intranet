@@ -64,56 +64,6 @@ const Dashboard = () => {
                 <div className='w-full'>
                     <News />
                 </div>
-                {/*
-                <Birthdays />
-                <Web />
-                
-                <Card
-                    title="Novedades"
-                    subtitle="Ultimas novedades para todo el personal"
-                >
-                    <div className="flex items-center space-x-3 pb-6">
-                        <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-gray-300" />
-                        <div>
-                            <p className="font-semibold">Daniel Murillo</p>
-                            <p className="text-sm text-gray-500">Publicado hace 2 dias</p>
-                            <p className="mt-3 text-gray-700">Desde el Area de Recursos Humanos se les recuerda que deben completar el formulario para asignaciones familiares antes del 31 de Enero 2025.</p>
-                        </div>
-                    </div>
-                    <div className="flex items-center space-x-3 pb-6">
-                        <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-gray-300" />
-                        <div>
-                            <p className="font-semibold">Daniel Murillo</p>
-                            <p className="text-sm text-gray-500">Publicado hace 2 dias</p>
-                            <p className="mt-3 text-gray-700">Desde el Area de Recursos Humanos se les recuerda que deben completar el formulario para asignaciones familiares antes del 31 de Enero 2025.</p>
-                        </div>
-                    </div>
-                </Card>
-                <div className="grid grid-cols-1 gap-6">
-                    <Card title="Notificaciones">
-                        <div className="relative">
-                            <div className="flex items-center space-x-[-10px]">
-                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
-                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
-                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
-                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
-                            </div>
-                        </div>
-
-                    </Card>
-                    <Card title="Notificaciones">
-                        <div className="relative">
-                            <div className="flex items-center space-x-[-10px]">
-                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
-                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
-                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
-                                <Image src="/avatar.jpg" alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white" />
-                            </div>
-                        </div>
-
-                    </Card>
-                </div>
-                */ }
             </div>
             <Information/>
         </>

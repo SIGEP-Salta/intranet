@@ -9,6 +9,8 @@ import { useState } from 'react'
 
 const NAV_LINKS = [
     { href: '/dashboard', label: 'Inicio' },
+    { href: '/novedades', label: 'Novedades' },
+    { href: '/capacitacion', label: 'Capacitación' },
 ]
 
 function getInitials(name) {
