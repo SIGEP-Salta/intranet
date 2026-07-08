@@ -50,15 +50,15 @@ export default function News() {
       ) : (
         <div className="mt-4 grid grid-cols-2 gap-4">
           { capacitacion && (
-            <New key={`${capacitacion.title}-${0}`} item={capacitacion} index={0} />
+            <New key={`${capacitacion.title}-${0}`} item={capacitacion} type="capacitacion" index={0} />
           )}
 
           { institucional && (
-            <New key={`${institucional.title}-${2}`} item={institucional} index={2} />
+            <New key={`${institucional.title}-${2}`} item={institucional} type="institucional" index={2} />
           )}
 
           { rrhh && (
-            <New key={`${rrhh.title}-${1}`} item={rrhh} index={1} />
+            <New key={`${rrhh.title}-${1}`} item={rrhh} type="rrhh" index={1} />
           )}
         </div>
       )}

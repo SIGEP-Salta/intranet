@@ -9,6 +9,15 @@ import {
 import Link from "next/link"
 
 const DEFAULT_NEWS_IMAGE = "/assets/logo.jpg"
+const DEFAULT_CAPACITACION_IMAGE = "/assets/capacitacion.jpeg"
+const DEFAULT_INSTITUCIONAL_IMAGE = "/assets/institucional.jpeg"
+const DEFAULT_RRHH_IMAGE = "/assets/rrhh.jpeg"
+
+const DEFAULT_IMAGES: Record<string, string> = {
+  capacitacion: DEFAULT_CAPACITACION_IMAGE,
+  institucional: DEFAULT_INSTITUCIONAL_IMAGE,
+  rrhh: DEFAULT_RRHH_IMAGE,
+}
 
 function employeesOrigin(): string {
   return (process.env.NEXT_PUBLIC_EMPLOYEES_URL || process.env.EMPLOYEES_URL || "")
@@ -16,10 +25,10 @@ function employeesOrigin(): string {
     .replace(/\/+$/, "")
 }
 
-function resolveNewsImage(src: string | undefined): string {
+function resolveNewsImage(src: string | undefined, type: string): string {
   const trimmed = src?.trim() ?? ""
   if (trimmed.length === 0) {
-    return DEFAULT_NEWS_IMAGE
+    return DEFAULT_IMAGES[type ?? ""] ?? DEFAULT_NEWS_IMAGE
   }
   if (/^https?:\/\//i.test(trimmed)) {
     return trimmed
@@ -83,11 +92,12 @@ export async function fetchNews(): Promise<NewsItem[]> {
 
 type NewProps = {
   item: NewsItem
-  index: number
+  index: number,
+  type: string
 }
 
-export default function New({ item, index }: NewProps) {
-  const imageSrc = resolveNewsImage(item.image)
+export default function New({ item, index, type }: NewProps) {
+  const imageSrc = resolveNewsImage(item.image, type)
 
   return (
     <Card
