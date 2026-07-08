@@ -1,4 +1,5 @@
 import PostDetail from "@/components/modules/posts/PostDetail"
+import RecentPosts from "@/components/modules/posts/RecentPosts"
 import { getNewsById } from "@/lib/posts"
 
 type Props = {
@@ -15,12 +16,12 @@ export default async function Page({ params }: Props) {
   }
 
   return (
-    <div className="grid grid-cols-4 gap-6">
-      <div className="col-span-3">
+    <div className="grid grid-cols-3 gap-6">
+      <div className="col-span-2">
         <PostDetail post={item.data} />
       </div>
-      <div>
-        Listado de posts
+      <div className="bg-white mt-6">
+        <RecentPosts />
       </div>
     </div>
   )
