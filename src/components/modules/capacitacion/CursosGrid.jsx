@@ -75,7 +75,7 @@ export default function CursosGrid() {
                       </CardAction>
 
                       <CardTitle>
-                      <Link href={`/novedades/${item.id}`}>
+                      <Link href={`/capacitacion/${item.id}`}>
                           {item.name}
                       </Link>
                       </CardTitle>

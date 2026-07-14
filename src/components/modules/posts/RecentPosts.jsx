@@ -27,17 +27,18 @@ export default function RecentPosts() {
                     </div>
 
                     {/* Contenido */}
-                    <div className="flex flex-col justify-between">
+                    <div className="flex flex-col gap-1">
                         
                         {/* Título */}
-                        <h4 className="text-sm font-semibold line-clamp-2">
+                        <h4 className="text-sm font-semibold line-clamp-1">
                         {post.title}
                         </h4>
 
-                        {/* Fecha */}
-                        <span className="text-xs text-muted-foreground">
-                        {new Date(post.post_date).toLocaleDateString()}
-                        </span>
+                        { post.date && (
+                            <span className="text-xs text-muted-foreground">
+                                {post.date}
+                            </span>
+                        )}
 
                         {/* Resumen */}
                         <p className="text-xs text-muted-foreground line-clamp-2">

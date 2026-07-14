@@ -52,9 +52,6 @@ export default async function PostDetail({ post }) {
           <p>{ post.content }</p>
         </div>
       </CardContent>
-      <CardFooter>
-        <Button className="w-full">Cargar capacitación</Button>
-      </CardFooter>
     </Card>
   );
 }
