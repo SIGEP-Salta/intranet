@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 import { Ollama } from "ollama"
 
 const DEFAULT_BASE_URL = "http://131.107.4.131:11434"
-const DEFAULT_MODEL = "qwen"
+const DEFAULT_MODEL = "qwen3:8b"
 const DEFAULT_SYSTEM_PROMPT =
     "Sos un asistente para el area de Control. Responde en espanol claro y conciso."
 
