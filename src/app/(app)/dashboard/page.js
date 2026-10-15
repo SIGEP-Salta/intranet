@@ -39,6 +39,7 @@ const Dashboard = () => {
         <>
             <Header title="Dashboard" />
             <Apps />
+            { /*
             <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-4 p-4">
                 <div className='col-span-1 w-[360px] min-w-[360px] flex flex-col gap-4'>
                     <Card>
@@ -66,6 +67,7 @@ const Dashboard = () => {
                 </div>
             </div>
             <Information/>
+            */ }
         </>
     )
 }
