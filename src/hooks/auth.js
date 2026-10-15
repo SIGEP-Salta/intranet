@@ -54,13 +54,26 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
         setStatus(null)
 
         try {
-            await axios.post('/api/v1/login', props) // responde 204 o 302 según backend
-            await mutate() // refresca el usuario logueado
-            //router.push('/') // redirige al home tras login exitoso
-        } catch (error) {
-            if (error.response?.status !== 422) throw error
+            // Autenticar al usuario.
+            await axios.post('/api/v1/login', props)
 
-            setErrors(error.response.data.errors)
+            // Obtener el usuario autenticado.
+            const response = await axios.get('/api/v1/user')
+
+            // Actualizar SWR con el usuario obtenido.
+            await mutate(response.data, {
+                revalidate: false,
+            })
+
+            // Redirigir cuando la autenticación esté confirmada.
+            router.replace('/')
+        } catch (error) {
+            if (error.response?.status === 422) {
+                setErrors(error.response.data.errors)
+                return
+            }
+
+            throw error
         }
     }
 
@@ -130,8 +143,15 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
             window.location.pathname === '/verify-email' &&
             user?.email_verified_at
         )
-            router.push(redirectIfAuthenticated)
-        if (middleware === 'auth' && error) logout()
+        
+        router.push(redirectIfAuthenticated)
+        
+        if (
+            middleware === 'auth' &&
+            error?.response?.status === 401
+        ) {
+            router.replace('/login')
+        }
     }, [user, error])
 
     return {
