@@ -9,6 +9,7 @@ import CourseCreateSheet from "@/components/modules/capacitacion/CourseCreateShe
 import useCourses from "@/hooks/useCourses"
 import Link from "next/link";
 import React, { useEffect, useState } from "react"
+import Image from "next/image";
 
 export default function CursosGrid() {
   const [search, setSearch] = useState("");
@@ -60,11 +61,10 @@ export default function CursosGrid() {
                   {/* Imagen + overlay */}
                   <div className="relative">
                       <div className="absolute inset-0 z-10 bg-black/35" />
-
-                      <img
-                      src={item.image}
-                      alt={item.name}
-                      className="aspect-video w-full object-cover"
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        className="aspect-video w-full object-cover"
                       />
                   </div>
 

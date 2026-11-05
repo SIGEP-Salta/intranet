@@ -10,6 +10,12 @@ module.exports = {
                 port: '',
                 pathname: '/account123/**',
             },
+            {
+                protocol: 'http',
+                hostname: '131.107.4.111',
+                port: '8000',
+                pathname: '/img/**',
+            }
         ],
     },
     output: 'standalone',
