@@ -14,8 +14,14 @@ module.exports = {
                 protocol: 'http',
                 hostname: '131.107.4.111',
                 port: '8000',
-                pathname: '/img/**',
-            }
+                pathname: '/**',
+            },
+            {
+                protocol: 'http',
+                hostname: 'core.sigep.local',
+                port: '',
+                pathname: '/**',
+            },
         ],
     },
     output: 'standalone',

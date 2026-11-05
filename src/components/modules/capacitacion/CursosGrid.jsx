@@ -64,6 +64,8 @@ export default function CursosGrid() {
                       <Image
                         src={item.image}
                         alt={item.name}
+                        width={100}
+                        height={100}
                         className="aspect-video w-full object-cover"
                       />
                   </div>
@@ -75,9 +77,9 @@ export default function CursosGrid() {
                       </CardAction>
 
                       <CardTitle>
-                      <Link href={`/capacitacion/${item.id}`}>
-                          {item.name}
-                      </Link>
+                        <Link href={`/capacitacion/${item.id}`}>
+                            {item.name}
+                        </Link>
                       </CardTitle>
 
                       <CardDescription className="line-clamp-3">
@@ -90,7 +92,11 @@ export default function CursosGrid() {
 
                   {/* Footer siempre abajo */}
                   <CardFooter>
-                      <Button className="w-full">Descargar material</Button>
+                      <Button className="w-full">
+                        <Link href={`/capacitacion/${item.id}`}>
+                          Ver curso
+                        </Link>
+                      </Button>
                   </CardFooter>
               </Card>
             ))}
