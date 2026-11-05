@@ -55,7 +55,7 @@ export default function CursosGrid() {
             </div>
             
           </div>
-          <div className="mt-4 grid grid-cols-3 gap-4">
+          <div className="mt-4 grid grid-cols-4 gap-4">
             {filtered.map((item, index) => (
               <Card className="flex flex-col h-full overflow-hidden pt-0">
                   {/* Imagen + overlay */}
